@@ -23,7 +23,7 @@ trainX = trainX.reshape((trainX.shape[0], 28, 28, 1))
 testX = testX.reshape((testX.shape[0], 28, 28, 1))
     
 model = Sequential()
-model.add(Conv2D(2, (3, 3), activation='relu', input_shape=(28, 28, 3)))
+model.add(Conv2D(2, (3, 3), activation='relu', input_shape=(28, 28, 1)))
 model.add(MaxPooling2D((2, 2)))
 model.add(Flatten())
 model.add(Dense(100, activation='relu'))
