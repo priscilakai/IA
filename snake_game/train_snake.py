@@ -16,12 +16,7 @@ def create_neural_network(enviroment):
 
     model = Sequential()
     model.add(Flatten(input_shape=enviroment.observation_space.shape))
-    model.add(Dense(18))
-    model.add(Activation('relu'))
-    model.add(Dense(18))
-    model.add(Activation('relu'))
-    model.add(Dense(nb_actions))
-    model.add(Activation('linear'))
+    #Definir modelo aqui
 
     memory = SequentialMemory(limit=20000, window_length=1)
     policy = EpsGreedyQPolicy(0.1)
