@@ -13,6 +13,20 @@ def gain_snake(lista_snake):
     for point in list_snake: #point pontos na lista contando as posições do corpo da cobra
         pygame.draw.rect(tela,(255,150,255),(point[0], point[1], 20, 20))
 
+def reload_game():
+    global pontos, comprimento_inicial, x, y, list_head, list_snake, x_food, y_food, dead
+    pontos = 0
+    comprimento_inicial = 1 
+    x = (largura/2) // 20.0 * 10
+    y = (altura/2) // 20.0 * 10
+    list_head = []
+    list_snake = []
+    x_food = randint(40, 600)
+    x_food = round(x_food / 20.0) * 10
+    y_food = randint(40, 420)
+    y_food = round(y_food / 20.0) * 10
+    dead = False
+
 pygame.init()
 largura = 640
 altura = 480
