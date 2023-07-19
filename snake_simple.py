@@ -4,17 +4,6 @@ from pygame.locals import *
 from random import randint
 from sys import exit
 
-def init_game(largura, altura):
-    pygame.init()
-    speed = 20
-    # Fonte, tamanho,  bold, italic
-    fonte = pygame.font.SysFont('gabriola', 30, True, True)  # pygame.font.get_fonts()
-
-    tela = pygame.display.set_mode((largura,altura))
-    pygame.display.set_caption('Deep Snake Game')
-    clock = pygame.time.Clock()  #objeto para controlar o fps do jogo
-    reload_game()
-
 def on_grid_random(largura,altura):
     x = randint(20, largura - 20)
     y = randint(20, altura - 20)
@@ -23,24 +12,24 @@ def on_grid_random(largura,altura):
 def gain_snake(lista_snake):
     for point in list_snake: #point pontos na lista contando as posições do corpo da cobra
         pygame.draw.rect(tela,(255,150,255),(point[0], point[1], 20, 20))
-        
-def reload_game():
-    global pontos, comprimento_inicial, x, y, list_head, list_snake, x_food, y_food, dead
-    pontos = 0
-    comprimento_inicial = 1 
-    x = (largura/2) // 20.0 * 10
-    y = (altura/2) // 20.0 * 10
-    list_head = []
-    list_snake = []
-    x_food = randint(40, 600)
-    x_food = round(x_food / 20.0) * 10
-    y_food = randint(40, 420)
-    y_food = round(y_food / 20.0) * 10
-    dead = False
-    
+
 pygame.init()
 largura = 640
 altura = 480
+        
+pontos = 0
+comprimento_inicial = 1 
+x = (largura/2) // 20.0 * 10
+y = (altura/2) // 20.0 * 10
+list_head = []
+list_snake = []
+x_food = randint(40, 600)
+x_food = round(x_food / 20.0) * 10
+y_food = randint(40, 420)
+y_food = round(y_food / 20.0) * 10
+dead = False    
+    
+
 
 speed  = 20
 x_control = speed
@@ -52,9 +41,6 @@ fonte = pygame.font.SysFont('gabriola', 30, True, True)  # pygame.font.get_fonts
 tela = pygame.display.set_mode((largura,altura))
 pygame.display.set_caption('Deep Snake Game')
 clock = pygame.time.Clock()  #objeto para controlar o fps do jogo
-
-# reload_game()
-init_game(640,480)
 
 while True:
     clock.tick(10)
