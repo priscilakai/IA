@@ -4,6 +4,17 @@ from pygame.locals import *
 from random import randint
 from sys import exit
 
+def init_game(largura, altura):
+    pygame.init()
+    speed = 20
+    # Fonte, tamanho,  bold, italic
+    fonte = pygame.font.SysFont('gabriola', 30, True, True)  # pygame.font.get_fonts()
+
+    tela = pygame.display.set_mode((largura,altura))
+    pygame.display.set_caption('Deep Snake Game')
+    clock = pygame.time.Clock()  #objeto para controlar o fps do jogo
+    reload_game()
+
 def on_grid_random(largura,altura):
     x = randint(20, largura - 20)
     y = randint(20, altura - 20)
